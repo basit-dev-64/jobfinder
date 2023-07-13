@@ -1,24 +1,55 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import useFetch from './hooks/useFetchJobsHook';
+import SearchArea from './components/SearchArea';
+import { JobCard } from './components/JobCard';
+import { useState } from 'react';
+//import data from './demojoblists.json' ;
+import { JobList } from './components/Joblist';
+import { MagnifyingGlass } from 'react-loader-spinner'
 
-function App() {
+
+function App(props) {
+
+  const [params, setParams] = useState({})
+
+  const handleSearchParams = (data) => {
+    setParams(data)
+  }
+  const Jobdata = useFetch(params)
+  console.log(Jobdata)
   return (
+    <>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className>Job Finder</h1>
+      <hr/>
+      <div className='top'>
+        <SearchArea searchParams={handleSearchParams} />
+      </div>
+      {Jobdata.loading != null ? Jobdata.loading ?
+        <MagnifyingGlass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="MagnifyingGlass-loading"
+          wrapperStyle={{}}
+          wrapperClass="loader"
+          glassColor='#c0efff'
+          color='#e15b64'
+        />
+        :
+        <div >
+          <JobList jobs={Jobdata.jobs} />
+        </div>
+        : <h2 style={{ color: 'red' }}>{Jobdata.error}</h2>
+      }
+      <div className='footer'>
+      <hr />
+      <p > © Copyright - Basit Raza </p>
+      </div>
     </div>
+    
+      </>
   );
 }
 

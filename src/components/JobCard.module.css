@@ -1,0 +1,8 @@
+.jobcard{
+    margin: 10px;
+}
+
+.cardbody{
+    display: flex;
+    justify-content: flex-start;
+}
