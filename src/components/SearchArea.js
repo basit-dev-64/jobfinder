@@ -25,7 +25,7 @@ const SearchArea = (props) => {
   }
 
   const searchButtonHandler = ()=>{
-    let params = {title:jobTitle,location:location}
+    let params = {keywords:jobTitle,location:location}
     props.searchParams(params)
   }
 

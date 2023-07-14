@@ -25,7 +25,7 @@ export const JobList = (props) => {
   return(
    <>
    <div className={classes.joblists}>
-   {currentItems.map(job=> <JobCard title={job.title} company={job.company} location={job.location} jd={job.jd} link={job.link} logo={job.company_logo} />)}
+   {currentItems.map(job=> <JobCard title={job.title} company={job.company} location={job.location} jd={job.snippet} link={job.link} logo={job.company_logo} />)}
    </div>
     <ReactPaginate
         breakLabel="..."
