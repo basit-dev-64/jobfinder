@@ -12,13 +12,13 @@
 .joblists {
     display:inline-flex;
     justify-content: center;
-    width: auto;
+    width: 80%;
   }
 
   @media screen and (max-width: 1180px) {
   
     .joblists {
-        width: 70%;
+        width: 50%;
         display:inline-block;
     }
   }
