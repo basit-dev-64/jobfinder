@@ -12,7 +12,7 @@ export const JobList = (props) => {
 
   const jobs = props.jobs
   const [itemOffset, setItemOffset] = useState(0);
-  const [itemsPerPage] = useState(3)
+  const [itemsPerPage] = useState(2)
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = jobs.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(jobs.length / itemsPerPage);

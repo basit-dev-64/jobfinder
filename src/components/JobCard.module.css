@@ -1,8 +1,16 @@
 .jobcard{
     margin: 10px;
+    width: 100%;
 }
 
 .cardbody{
     display: flex;
     justify-content: flex-start;
 }
+
+@media screen and (max-width: 500px) {
+  
+    .jobcard {
+        width: 50%;
+    }
+  }
